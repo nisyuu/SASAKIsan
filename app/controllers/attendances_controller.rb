@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :update, :edit]
-  before_action :correct_user,   only: [:destroy, :update, :edit]
+  before_action :correct_user,   only: [:update, :edit]
   before_action :admin_user,     only: :destroy
 
   def create
@@ -39,6 +39,7 @@ class AttendancesController < ApplicationController
   end
 
   def destroy
+    @attendance = Attendance.find(params[:id])
     @attendance.destroy
     flash[:success] = "削除しました。"
     redirect_to request.referrer || root_url
