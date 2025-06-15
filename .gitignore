@@ -38,4 +38,8 @@
 yarn-debug.log*
 .yarn-integrity
 
+# Ignore generated articles and speech files
+/articles/*.txt
+/vlog/*.mp3
+
 
